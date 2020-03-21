@@ -22,11 +22,8 @@ function Navbar (){
   <div id="navbarBasicExample" className="navbar-menu">
   <div className="navbar-start">
   <div className="navbar-item">
-      <Link to="/">Home</Link>
+      <Link to="/">Search</Link>
         
-  </div>
-  <div className="navbar-item">
-       <Link to="/search"> Search</Link>
   </div>
   <div className="navbar-item">
        <Link to="/saved"> Saved</Link>

@@ -39,7 +39,9 @@ function Search() {
 
     return (
         <>
-            <h1 className="title">Search for Books</h1>
+        <h1 className="title">Search for books on Google</h1>
+        <p className="info">Navigate the using the navbar to search Googles API for books. Save your favorites and find your saved books all in one place!</p>
+            <h1 className="title">Search Here</h1>
             <form className="search" onSubmit={handleSubmit}>
                 <input id="input" type="text" onChange={handleChange} placeholder="Search for books"/>
                 <button type="submit" className="button is-primary">Search</button>
