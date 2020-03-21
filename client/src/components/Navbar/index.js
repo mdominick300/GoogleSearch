@@ -7,10 +7,10 @@ function Navbar (){
     return(
         <nav className="navbar " role="navigation" aria-label="main navigation">
   <div className="navbar-brand">
-    <div className="navbar-item">
-    <Link to="/">
+    <div className="navbar-item header">Google Books
+    {/* <Link to="/">
       <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28" alt="logo"/>
-    </Link>
+    </Link> */}
     </div>
 
     <div role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">

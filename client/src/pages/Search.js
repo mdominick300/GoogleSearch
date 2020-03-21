@@ -32,36 +32,41 @@ function Search() {
     }
 
     function saveBook(){
-        console.log(book);
+        console.log(this.innerHTML);
     
 
     }
 
     return (
         <>
-            <h1>Search for Books</h1>
-            <form onSubmit={handleSubmit}>
-                <input type="text" onChange={handleChange} placeholder="Search for books"/>
-                <button type="submit" className="button">Search</button>
+            <h1 className="title">Search for Books</h1>
+            <form className="search" onSubmit={handleSubmit}>
+                <input id="input" type="text" onChange={handleChange} placeholder="Search for books"/>
+                <button type="submit" className="button is-primary">Search</button>
             </form>
             <List>
                 {result.map(book => (
-                    <div className="columns">
+                    <div className="columns" id="searchText">
                         <div className="column is-four-fifths">
-                              <h1>{book.volumeInfo.title}</h1>
+                              
                               <div className="columns">
                               <div className="column is-half"> 
                               <img width="200px" height="200px" src={book.volumeInfo.imageLinks.thumbnail}/>
                               </div>
                               <div className="column is-half"> 
-                                <p>{book.volumeInfo.authors}</p>
+                              <h1 id="bookHeader">{book.volumeInfo.title}</h1>
+                              <br></br>
+                                <p>By: {book.volumeInfo.authors}</p>
+                                <br></br>
                                 <p>{book.volumeInfo.description}</p>
                                 </div>
                                 </div>
                                 
                         </div>
-                        <div className="column is-four-fifths">
-                        <SaveBtn onClick={() => saveBook(book._id)} />
+                        <div className="column is-one-fifth">
+                        <SaveBtn 
+                        disabled={!(book)}
+                        onClick={() => saveBook(book._id)} />
                         </div>
                     </div>
                 ))}

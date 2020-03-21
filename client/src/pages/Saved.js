@@ -30,7 +30,7 @@ function Saved() {
 
     return (
         <>
-            <h1>All Saved Books</h1>
+            <h1 className="title">Your Saved Books</h1>
             <List>
                 {books.map(book => (
                     <ListItem key={book._id}>
