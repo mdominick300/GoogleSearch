@@ -31,8 +31,13 @@ function Search() {
         })
     }
 
-    function saveBook(){
-        console.log(this.innerHTML);
+    function saveBook(bookid, title, image, authors, description){
+      
+        console.log(bookid)
+        console.log(title)
+        console.log(image)
+        console.log(authors);
+        console.log(description);
     
 
     }
@@ -68,7 +73,7 @@ function Search() {
                         <div className="column is-one-fifth">
                         <SaveBtn 
                         disabled={!(book)}
-                        onClick={() => saveBook(book._id)} />
+                        onClick={() => saveBook(book.id, book.volumeInfo.title,book.volumeInfo.imageLinks.thumbnail,book.volumeInfo.authors,book.volumeInfo.description,)} />
                         </div>
                     </div>
                 ))}
