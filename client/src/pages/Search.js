@@ -31,16 +31,24 @@ function Search() {
         })
     }
 
-    function saveBook(bookid, title, image, authors, description){
+    function saveBook(title, image, authors, description){
       
-        console.log(bookid)
         console.log(title)
         console.log(image)
         console.log(authors);
         console.log(description);
-    
 
-    }
+        console.log("logged");
+          API.saveBook({
+            image: image,
+            title: title,
+            author: authors,
+            description: description
+          })
+            // .then(res => loadBooks())
+            .catch(err => console.log(err));
+        
+      }
 
     return (
         <>
@@ -73,7 +81,7 @@ function Search() {
                         <div className="column is-one-fifth">
                         <SaveBtn 
                         disabled={!(book)}
-                        onClick={() => saveBook(book.id, book.volumeInfo.title,book.volumeInfo.imageLinks.thumbnail,book.volumeInfo.authors,book.volumeInfo.description,)} />
+                        onClick={() => saveBook(book.volumeInfo.title,book.volumeInfo.imageLinks.thumbnail,book.volumeInfo.authors[0],book.volumeInfo.description,)} />
                         </div>
                     </div>
                 ))}

@@ -33,14 +33,27 @@ function Saved() {
             <h1 className="title">Your Saved Books</h1>
             <List>
                 {books.map(book => (
-                    <ListItem key={book._id}>
-                        <Link to={"/books/" + book._id}>
-                            <strong>
-                                {book.title} Photo: <img width="200px" height="200px" src={book.image} />
-                            </strong>
-                        </Link>
+                    <div className="columns" id="searchText">
+                        <div className="column is-four-fifths">
+                              
+                              <div className="columns">
+                              <div className="column is-half"> 
+                              <img width="200px" height="200px" src={book.image}/>
+                              </div>
+                              <div className="column is-half"> 
+                              <h1 id="bookHeader">{book.title}</h1>
+                              <br></br>
+                                <p>By: {book.authors}</p>
+                                <br></br>
+                                <p>{book.description}</p>
+                                </div>
+                                </div>
+                                
+                        </div>
+                        <div className="column is-one-fifth">
                         <DeleteBtn onClick={() => deleteBook(book._id)} />
-                    </ListItem>
+                        </div>
+                    </div>
                 ))}
             </List>
         </>
@@ -48,3 +61,4 @@ function Saved() {
 }
 
 export default Saved;
+
