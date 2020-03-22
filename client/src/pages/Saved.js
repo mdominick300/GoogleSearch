@@ -51,7 +51,7 @@ function Saved() {
                                 
                         </div>
                         <div className="column is-one-fifth">
-                        <DeleteBtn onClick={() => deleteBook(book._id)} />
+                        <DeleteBtn className="button deleteBtn" onClick={() => deleteBook(book._id)} />
                         </div>
                     </div>
                 ))}

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import API from "../utils/API";
 import { List, ListItem } from "../components/List";
 import SaveBtn from "../components/SaveBtn";
-import Axios from "axios";
 import axios from "axios";
 
 
@@ -22,9 +21,9 @@ function Search() {
         setBook(book);
     }
 
-    function handleSubmit(event){
+     async function handleSubmit(event){
         event.preventDefault();
-        axios.get("https://www.googleapis.com/books/v1/volumes?q="+book+"&key="+apiKey+"&maxResults=40")
+       axios.get("https://www.googleapis.com/books/v1/volumes?q="+book+"&key="+apiKey+"&maxResults=20")
         .then(data => {
             console.log(data.data.items);
             setResult(data.data.items);
@@ -39,6 +38,7 @@ function Search() {
         console.log(description);
 
         console.log("logged");
+        alert("Your books is saved!")
           API.saveBook({
             image: image,
             title: title,
@@ -81,7 +81,7 @@ function Search() {
                         <div className="column is-one-fifth">
                         <SaveBtn 
                         disabled={!(book)}
-                        onClick={() => saveBook(book.volumeInfo.title,book.volumeInfo.imageLinks.thumbnail,book.volumeInfo.authors[0],book.volumeInfo.description,)} />
+                        onClick={() => saveBook(book.volumeInfo.title,book.volumeInfo.imageLinks.thumbnail,book.volumeInfo.authors[0],book.volumeInfo.description)} />
                         </div>
                     </div>
                 ))}
