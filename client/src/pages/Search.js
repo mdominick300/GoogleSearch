@@ -22,9 +22,9 @@ function Search() {
         setBook(book);
     }
 
-     async function handleSubmit(event){
+     function handleSubmit(event){
         event.preventDefault();
-       axios.get("https://www.googleapis.com/books/v1/volumes?q="+book+"&key="+apiKey+"&maxResults=20")
+       axios.get("https://www.googleapis.com/books/v1/volumes?q="+book+"&key="+apiKey+"&maxResults=6")
         .then(data => {
             console.log(data.data.items);
             setResult(data.data.items);
@@ -74,6 +74,7 @@ function Search() {
                               <a target="_blank" href={book.volumeInfo.previewLink}>
                               <img width="200px" height="200px" src={book.volumeInfo.imageLinks.thumbnail}/>
                               </a>
+                              <p id="bookLink">Click to read book</p>
                               </div>
                               <div className="column is-half"> 
                               <h1 id="bookHeader">{book.volumeInfo.title}</h1>
