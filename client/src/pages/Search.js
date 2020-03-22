@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import API from "../utils/API";
-import { List, ListItem } from "../components/List";
+import { List } from "../components/List";
 import SaveBtn from "../components/SaveBtn";
+import ViewBtn from "../components/ViewBtn";
 import axios from "axios";
 
 
@@ -30,7 +31,7 @@ function Search() {
         })
     }
 
-    function saveBook(title, image, authors, description){
+    function saveBook(title, image, authors, description, link){
       
         console.log(title)
         console.log(image)
@@ -43,7 +44,8 @@ function Search() {
             image: image,
             title: title,
             author: authors,
-            description: description
+            description: description,
+            link: link
           })
             // .then(res => loadBooks())
             .catch(err => console.log(err));
@@ -66,7 +68,9 @@ function Search() {
                               
                               <div className="columns">
                               <div className="column is-half"> 
+                              <a target="_blank" href={book.volumeInfo.previewLink}>
                               <img width="200px" height="200px" src={book.volumeInfo.imageLinks.thumbnail}/>
+                              </a>
                               </div>
                               <div className="column is-half"> 
                               <h1 id="bookHeader">{book.volumeInfo.title}</h1>
@@ -79,9 +83,8 @@ function Search() {
                                 
                         </div>
                         <div className="column is-one-fifth">
-                        <SaveBtn 
-                        disabled={!(book)}
-                        onClick={() => saveBook(book.volumeInfo.title,book.volumeInfo.imageLinks.thumbnail,book.volumeInfo.authors[0],book.volumeInfo.description)} />
+                        <ViewBtn   />
+                        <SaveBtn onClick={() => saveBook(book.volumeInfo.title,book.volumeInfo.imageLinks.thumbnail,book.volumeInfo.authors[0],book.volumeInfo.description,book.volumeInfo.previewLink)} />
                         </div>
                     </div>
                 ))}
