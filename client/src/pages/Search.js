@@ -52,6 +52,9 @@ function Search() {
         
       }
 
+      function viewBook(link){
+      }
+
     return (
         <>
         <h1 className="title">Search for books on Google</h1>
@@ -83,7 +86,7 @@ function Search() {
                                 
                         </div>
                         <div className="column is-one-fifth">
-                        <ViewBtn   />
+                        {/* <ViewBtn onClick= {href={book.volumeInfo.previewLink}} /> */}
                         <SaveBtn onClick={() => saveBook(book.volumeInfo.title,book.volumeInfo.imageLinks.thumbnail,book.volumeInfo.authors[0],book.volumeInfo.description,book.volumeInfo.previewLink)} />
                         </div>
                     </div>

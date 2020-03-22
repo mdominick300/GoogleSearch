@@ -38,7 +38,9 @@ function Saved() {
                               
                               <div className="columns">
                               <div className="column is-half"> 
+                              <a target="_blank" href={book.link}>
                               <img width="200px" height="200px" src={book.image}/>
+                              </a>
                               </div>
                               <div className="column is-half"> 
                               <h1 id="bookHeader">{book.title}</h1>
